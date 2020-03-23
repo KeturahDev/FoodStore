@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model FoodStore.Models.Store
+<h4>Add a new Store</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.StoreName)
+  @Html.TextBoxFor(model => model.StoreName)
+  @Html.LabelFor(model => model.Address)
+  @Html.TextBoxFor(model => model.Address)
+  
+  <input type= "submit" value="Add new store"/>
+}
+<p>@Html.ActionLink("Show all stores", "Index")</p>
+
+

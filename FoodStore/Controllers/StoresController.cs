@@ -33,5 +33,15 @@ namespace FoodStore.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
+    public ActionResult Details(int id)
+    {
+      var thisStore = _db.Stores
+          .Include(store => store.Items)
+          .ThenInclude(join => join.Item)
+          .FirstOrDefault(store => store.StoreId == id);
+      return View(thisStore);
+    }
+    
   }
 }
