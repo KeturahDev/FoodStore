@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@using FoodStore.Models;
+@model List<FoodStore.Models.Item>
+
+<h1>Checkout THOSE items!</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3> YO' there aint no items here!</h3>
+}
+@foreach (Item item in Model)
+{
+  <li>@Html.ActionLink($"{item.StoreName}", "Details", new { id = store.StoreId})
+}

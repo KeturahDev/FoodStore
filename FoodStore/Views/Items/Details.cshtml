@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model FoodStore.Models.Item
+
+<h2>Item Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.ItemName): @Html.DisplayFor(model => model.ItemName)</h3>
+
+@if(@Model.Stores.Count == 0)
+{
+  <p>This item does not belong to any stores</p>
+}
+else
+{
+  <h4>Stores the item belongs to:</h4>
+  <ul>
+    @foreach(var join in Model.Stores)
+    {
+      <li>@join.Category.Name</li>
+      @using (Html.BeginForm("DeleteCategory", "Items"))
+      {
+        @Html.Hidden("joinId", @join.CategoryItemId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Item", "Edit", new { id = Model.ItemId })</p>
+<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p>
+<p>@Html.ActionLink("Add a Category", "AddCategory", new { id = Model.ItemId })</p>

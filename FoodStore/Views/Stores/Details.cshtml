@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model FoodStore.Models.Store;
+
+<h2>Store Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.StoreName): @Html.DisplayFor(model => model.StoreName)</h3></h3>
+@if(@Model.Items.Count == 0)
+{
+  <p>This store does not carry any items</p>
+}
+else
+{
+  <h4>This store carries:</h4>
+  <ul>
+    @foreach(var join in Model.Items)
+    {
+    <li>@join.Item.ItemName</li>
+    <li>@join.Item.Quantity</li>
+    }
+  </ul>
+}
