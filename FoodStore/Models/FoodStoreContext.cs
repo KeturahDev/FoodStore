@@ -8,7 +8,7 @@ namespace FoodStore.Models
     public DbSet<Item> Items { get; set; }
     public DbSet<ItemStore> ItemStore { get; set; }
 
-    public FoodStoreContex(DbContextOptions options) : base(options) {}
+    public FoodStoreContext(DbContextOptions options) : base(options) { }
 
   }
 }

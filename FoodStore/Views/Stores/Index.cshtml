@@ -1,4 +1,4 @@
-@{Layout="Layout";}
+@{Layout="_Layout";}
 
 @using FoodStore.Models;
 @model List<FoodStore.Models.Store>;
@@ -7,7 +7,7 @@
 
 @if (@Model.Count == 0)
 {
-  <h2> GET OUT OF HERE! </h2>
+  <h2> nevermind... </h2>
 }
 
 @foreach (Store store in Model)

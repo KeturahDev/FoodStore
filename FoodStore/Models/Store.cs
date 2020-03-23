@@ -4,7 +4,7 @@ namespace FoodStore.Models
 {
   public class Store
   {
-    public Item()
+    public Store()
     {
       this.Items = new HashSet<ItemStore>();
     }

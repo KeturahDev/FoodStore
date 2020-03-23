@@ -1,4 +1,4 @@
-namespace FoodStore 
+namespace FoodStore.Models
 {
   public class ItemStore
   {
